@@ -1,0 +1,22 @@
+def compute_medians(list_of_lists):
+    """(list) -> list
+    Takes in list_of_lists as a list of multiple lists and returns a new list containing the medians of all the lists.
+    """
+    medians = []
+
+    for lst in list_of_lists:
+        #empty lists
+        if len(lst) == 0:
+            medians.append(0)
+        else:
+            sorted_lst = sorted(lst)
+            n = len(sorted_lst)
+
+            if n % 2 > 0:  # If the list has an odd number of elements
+                median = sorted_lst[n//2]
+            else:  # If the list has an even number of elements
+                median = (sorted_lst[n//2 - 1] + sorted_lst[n//2]) / 2
+
+            medians.append(median)
+
+    return medians
